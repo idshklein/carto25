@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he" xml:lang="he"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.537">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="עדו קליין">
+
+<title>שאילתות מרחביות לא טבלאיות</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="lect_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lect_files/libs/quarto-html/quarto.js"></script>
+<script src="lect_files/libs/quarto-html/popper.min.js"></script>
+<script src="lect_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lect_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lect_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lect_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lect_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lect_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lect_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="rtl.css">
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">שאילתות מרחביות לא טבלאיות</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">כותב</div>
+    <div class="quarto-title-meta-contents">
+             <p>עדו קליין </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="למה-אנחנו-רגילים" class="level2">
+<h2 class="anchored" data-anchor-id="למה-אנחנו-רגילים">למה אנחנו רגילים?</h2>
+<p>שאילתות מרחביות טבלאיות. לדוגמא - עם qgis. לדוגמא - עם sql מרחבי.</p>
+</section>
+<section id="מה-המגבלות" class="level2">
+<h2 class="anchored" data-anchor-id="מה-המגבלות">מה המגבלות?</h2>
+<p>הכל מסודר בטבלאות. הוספת רשומה, עמודה, ישות או קשר בין טבלאות - מורכב - מהקל אל הכבד.</p>
+</section>
+<section id="מבנה-רשתי" class="level2">
+<h2 class="anchored" data-anchor-id="מבנה-רשתי">מבנה רשתי</h2>
+<p>רשתות - מבנה נתונים לא טבלאי. מאפשרות מחשבה שונה על המרחב, מה שמתואר בו ואיך דברים מתוארים בו.</p>
+</section>
+<section id="דוגמאות-בשטח" class="level2">
+<h2 class="anchored" data-anchor-id="דוגמאות-בשטח">דוגמאות בשטח</h2>
+<p>ויקינתונים - ישויות וקשרים בין ישויות.</p>
+</section>
+<section id="דוגמאות-גאוגרפיות" class="level2">
+<h2 class="anchored" data-anchor-id="דוגמאות-גאוגרפיות">דוגמאות גאוגרפיות</h2>
+<p>open street map - ישויות וקשרים בין ישויות. אין שכבות.</p>
+</section>
+<section id="איך-שואלים-שאלות" class="level2">
+<h2 class="anchored" data-anchor-id="איך-שואלים-שאלות">איך שואלים שאלות?</h2>
+<p>באמצעות שאילתות, נגישות לכל מי שחפץ בכך ויש לו אינטרנט.</p>
+</section>
+<section id="overpass-api---השער-לosm" class="level2">
+<h2 class="anchored" data-anchor-id="overpass-api---השער-לosm">overpass api - השער לosm</h2>
+<p>overpass api היא שפת שאילתות המאפשרת תשאול של מאגר הנתונים של OpenStreetMap. מתבצע בה שימוש בהרבה מאוד יישומים, כמו למשל: - openstreetmap.org - תוסף quickosm לqgis - תוסף osminfo לqgis</p>
+<section id="overpass-turbo" class="level3">
+<h3 class="anchored" data-anchor-id="overpass-turbo">overpass turbo</h3>
+<p>כלל המידע בosm נגיש בהרבה מאוד מאוד מאוד תצורות ודרכים באמצעות overpass turbo והשאילתות שניתן לייצר דרכו</p>
+<p><a href="https://overpass-turbo.eu/">לינק</a></p>
+</section>
+<section id="דוגמאות" class="level3">
+<h3 class="anchored" data-anchor-id="דוגמאות">דוגמאות</h3>
+<ul>
+<li><a href="https://overpass-turbo.eu/s/2bNJ">כל הגנים הציבוריים ברחובות</a></li>
+</ul>
+<pre class="{overpass-api}"><code>area["name"="רחובות"]-&gt;.searchArea;
+(
+    node["leisure"="park"](area.searchArea);
+    way["leisure"="park"](area.searchArea);
+    relation["leisure"="park"](area.searchArea);
+);
+out body;
+&gt;;
+out skel qt;</code></pre>
+<ul>
+<li><a href="https://overpass-turbo.eu/s/2bNM">כל הכבישים הממוספרים עם מידע לגבי כמות נתיבים</a></li>
+</ul>
+<pre class="{overpass-api}"><code>rel(6195356);
+map_to_area;
+way["highway"]["ref"]["lanes"](area);
+out geom meta;</code></pre>
+<ul>
+<li><a href="https://overpass-turbo.eu/s/2bNN">כל הכבישים שהיו שהתווספו לסטטוס בנייה בישראל בין 2020 ל2025</a></li>
+</ul>
+<pre class="{overpass-api}"><code>[adiff:"2020-01-01T19:20:00Z","2025-01-01T19:20:00Z"];
+relation(6195356);
+map_to_area;
+way["highway"="construction"](area);
+compare(delta:t["highway"]){
+  way._["highway"!~"construction"];
+  out;
+}
+out geom meta;</code></pre>
+</section>
+</section>
+<section id="מה-בעצם-קורה-פה" class="level2">
+<h2 class="anchored" data-anchor-id="מה-בעצם-קורה-פה">מה בעצם קורה פה?</h2>
+<ul>
+<li>ישות - node, way, relation</li>
+<li>תכונה - key, value בשפת השאילתות אנחנו בוחרים ישויות עם תכונות מסוימות, בתוך אזור מסוים או בקשר רשתי או מרחבי עם ישויות אחרות. החופש שמבנה הנתונים הלא טבלאי מאפשר הוא עצום- היעדר ההיררכיה המובהקת, למעט ברמת סוג הישוות, מאפשר שאילתות מורכבות מאוד שמאגר טבלאי לא היה בהכרח מאפשר.</li>
+</ul>
+</section>
+<section id="חסרונות" class="level2">
+<h2 class="anchored" data-anchor-id="חסרונות">חסרונות</h2>
+<ul>
+<li>הנתונים הם מרחביים בעיקרם. ניתן לייצר ישויות של יחסים שאינם בהכרח מרחביים אבל הכל הדש הוא מרחבי.</li>
+</ul>
+</section>
+<section id="ויקינתונים" class="level2">
+<h2 class="anchored" data-anchor-id="ויקינתונים">ויקינתונים</h2>
+<p>ויקינתונים - מאגר נתונים של ישויות וקשרים בין ישויות. מבית ויקיפדיה, פשוט - של נתונים המוזנים על ידי הקהילה ובפורמט נתונים פתוח. לא בהכרח מרחביים, ואפילו רוב הפעמים לא, אבל לעיתים כן.</p>
+</section>
+<section id="שירות-השאילתות-של-ויקינתונים" class="level2">
+<h2 class="anchored" data-anchor-id="שירות-השאילתות-של-ויקינתונים">שירות השאילתות של ויקינתונים</h2>
+<p><a href="https://query.wikidata.org/">לינק</a> דוגמאות מספרית הדוגמאות.</p>
+</section>
+<section id="דוגמאות-מרחביות" class="level2">
+<h2 class="anchored" data-anchor-id="דוגמאות-מרחביות">דוגמאות מרחביות</h2>
+<ul>
+<li><a href="https://query.wikidata.org/#%23Largest%20cities%20per%20country%0A%23Largest%20cities%20per%20country%0ASELECT%20DISTINCT%20%3Fcity%20%3FcityLabel%20%3Fpopulation%20%3Fcountry%20%3FcountryLabel%20%3Floc%20WHERE%20%7B%0A%20%20%7B%0A%20%20%20%20SELECT%20%28MAX%28%3Fpopulation_%29%20AS%20%3Fpopulation%29%20%3Fcountry%20WHERE%20%7B%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation_%20.%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP17%20%3Fcountry%20.%0A%20%20%20%20%7D%0A%20%20%20%20GROUP%20BY%20%3Fcountry%0A%20%20%20%20ORDER%20BY%20DESC%28%3Fpopulation%29%0A%20%20%7D%0A%20%20%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%0A%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation%20.%0A%20%20%3Fcity%20wdt%3AP17%20%3Fcountry%20.%0A%20%20%3Fcity%20wdt%3AP625%20%3Floc%20.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22%20.%0A%20%20%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fpopulation%29">כל הערים הגדולות במדינה מסוימת</a></li>
+</ul>
+<pre class="{spar-ql}"><code>#Largest cities per country
+SELECT DISTINCT ?city ?cityLabel ?population ?country ?countryLabel ?loc WHERE {
+  {
+    SELECT (MAX(?population_) AS ?population) ?country WHERE {
+      ?city wdt:P31/wdt:P279* wd:Q515 .
+      ?city wdt:P1082 ?population_ .
+      ?city wdt:P17 ?country .
+    }
+    GROUP BY ?country
+    ORDER BY DESC(?population)
+  }
+  ?city wdt:P31/wdt:P279* wd:Q515 .
+  ?city wdt:P1082 ?population .
+  ?city wdt:P17 ?country .
+  ?city wdt:P625 ?loc .
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" .
+  }
+}
+ORDER BY DESC(?population)</code></pre>
+<ul>
+<li><a href="https://query.wikidata.org/#%23Items%20geographically%20located%20around%20the%20Wikimedia%20Foundation%20office%2C%20sorted%20by%20distance%0ASELECT%20%3Fplace%20%3Flocation%20%3Fdistance%20%3FplaceLabel%20WHERE%20%7B%0A%20%20%20%20SERVICE%20wikibase%3Aaround%20%7B%0A%20%20%20%20%20%20%3Fplace%20wdt%3AP625%20%3Flocation%20.%0A%20%20%20%20%20%20bd%3AserviceParam%20wikibase%3Acenter%20%22Point%28-122.402251%2037.789246%29%22%5E%5Egeo%3AwktLiteral%20.%0A%20%20%20%20%20%20bd%3AserviceParam%20wikibase%3Aradius%20%221%22%20.%0A%20%20%20%20%20%20bd%3AserviceParam%20wikibase%3Adistance%20%3Fdistance%20.%0A%20%20%20%20%7D%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%7D%20ORDER%20BY%20%3Fdistance%20LIMIT%20100">ערכים בויקינתונים הנמצאים עד ק”מ אחד ממשרדי קרן ויקימדיה</a></li>
+</ul>
+<pre class="{spar-ql}"><code>#Items geographically located around the Wikimedia Foundation office, sorted by distance
+SELECT ?place ?location ?distance ?placeLabel WHERE {
+    SERVICE wikibase:around {
+      ?place wdt:P625 ?location .
+      bd:serviceParam wikibase:center "Point(-122.402251 37.789246)"^^geo:wktLiteral .
+      bd:serviceParam wikibase:radius "1" .
+      bd:serviceParam wikibase:distance ?distance .
+    }
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en". }
+} ORDER BY ?distance LIMIT 100</code></pre>
+<ul>
+<li><a href="https://query.wikidata.org/index.html#%23defaultView%3AMap%0ASELECT%20%3Fitem%20%3FitemLabel%20%3Fcoordinates%20%3FappliesPart%0AWHERE%0A%7B%0A%20%20%23%3Fsea%20wdt%3AP361%2a%20wd%3AQ166.%0A%20%20%3Fsea%20wdt%3AP361%2a%20wd%3AQ3140.%0A%20%20%3Fitem%20wdt%3AP403%2a%20%3Fsea.%20%0A%20%20%3Fitem%20p%3AP625%20%3FcoordinateStatement.%0A%20%20%3FcoordinateStatement%20ps%3AP625%20%3Fcoordinates.%20%0A%20%20OPTIONAL%20%7B%20%0A%20%20%20%20%3FcoordinateStatement%20pq%3AP518%20%3FappliesPart.%20%0A%20%20%7D%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22he%2Cen%22.%20%7D%0A%7D%0A">אגן ההיקוות של ההדסון</a></li>
+</ul>
+<pre class="{spar-ql}"><code>#defaultView:Map
+SELECT ?item ?itemLabel ?coordinates ?appliesPart
+WHERE
+{
+  #?sea wdt:P361* wd:Q166.
+  ?sea wdt:P361* wd:Q3140.
+  ?item wdt:P403* ?sea. 
+  ?item p:P625 ?coordinateStatement.
+  ?coordinateStatement ps:P625 ?coordinates. 
+  OPTIONAL { 
+    ?coordinateStatement pq:P518 ?appliesPart. 
+  }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "he,en". }
+}</code></pre>
+</section>
+<section id="חסרונות-1" class="level2">
+<h2 class="anchored" data-anchor-id="חסרונות-1">חסרונות</h2>
+<ul>
+<li>הנתונים הם בעיקר של נקודות. אין מורכבות גדולה באחסון הנתונים.</li>
+</ul>
+</section>
+<section id="על-קצה-המזלג---ערבוב-בין-השניים---qlever" class="level2">
+<h2 class="anchored" data-anchor-id="על-קצה-המזלג---ערבוב-בין-השניים---qlever">על קצה המזלג - ערבוב בין השניים - qlever</h2>
+<p><a href="https://qlever.informatik.uni-freiburg.de/demo.html">לינק</a> מנוע שאילתות המשלב בין ויקינתונים לopen street map.</p>
+</section>
+<section id="דוגמא-אחת-שעובדת" class="level2">
+<h2 class="anchored" data-anchor-id="דוגמא-אחת-שעובדת">דוגמא אחת שעובדת</h2>
+<ul>
+<li><a href="https://qlever.cs.uni-freiburg.de/osm-planet/GZhkck">גאומטריות של מדינות דוברות ספרדית וכמות האוכלוסיה בהן</a></li>
+</ul>
+</section>
+<section id="סיכום" class="level2">
+<h2 class="anchored" data-anchor-id="סיכום">סיכום</h2>
+<ul>
+<li>שאילתות מרחביות לא טבלאיות הן כלי חזק מאוד.</li>
+<li>יש להן חסרונות, בעיקר בהקשר של מורכבות הנתונים.</li>
+<li>יש להן יתרונות גדולים, בעיקר בהקשר של חופש השאילתות והיכולת לשלב בין סוגי נתונים שונים.</li>
+<li>השימוש בהן מעצב מחדש את החשיבה שלנו על נתונים ומרחב, וכמות השאלות שניתן לשאול בקלות.</li>
+<li>ניהול מסד נתונים תפעולי שלם בצורה מקוננת - האתגר הבא.</li>
+</ul>
+</section>
+<section id="תודה-רבה" class="level2">
+<h2 class="anchored" data-anchor-id="תודה-רבה">תודה רבה!</h2>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "הועתק!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "הועתק!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

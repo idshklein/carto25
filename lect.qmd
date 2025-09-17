@@ -1,7 +1,181 @@
 ---
 title: "שאילתות מרחביות לא טבלאיות"
 lang: he
-format: html
-authot: "עדו קליין"
+format:
+  html:
+    css: rtl.css
+author: "עדו קליין"
 ---
 
+## למה אנחנו רגילים?
+שאילתות מרחביות טבלאיות. 
+לדוגמא - עם qgis. 
+לדוגמא - עם sql מרחבי.
+
+## מה המגבלות?
+הכל מסודר בטבלאות. 
+הוספת רשומה, עמודה, ישות או קשר בין טבלאות - מורכב - מהקל אל הכבד.
+
+
+## מבנה רשתי
+רשתות - מבנה נתונים לא טבלאי.
+מאפשרות מחשבה שונה על המרחב, מה שמתואר בו ואיך דברים מתוארים בו. 
+
+## דוגמאות בשטח
+ויקינתונים - ישויות וקשרים בין ישויות.
+
+## דוגמאות גאוגרפיות
+open street map - ישויות וקשרים בין ישויות. אין שכבות. 
+
+## איך שואלים שאלות?
+באמצעות שאילתות, נגישות לכל מי שחפץ בכך ויש לו אינטרנט. 
+
+## overpass api - השער לosm
+overpass api היא שפת שאילתות המאפשרת תשאול של מאגר הנתונים של OpenStreetMap.
+מתבצע בה שימוש בהרבה מאוד יישומים, כמו למשל:
+- openstreetmap.org
+- תוסף quickosm לqgis
+- תוסף osminfo לqgis  
+
+### overpass turbo
+כלל המידע בosm נגיש בהרבה מאוד מאוד מאוד תצורות ודרכים באמצעות overpass turbo והשאילתות שניתן לייצר דרכו
+
+[לינק](https://overpass-turbo.eu/)  
+
+### דוגמאות
+- [כל הגנים הציבוריים ברחובות](https://overpass-turbo.eu/s/2bNJ) 
+
+```{overpass-api}
+area["name"="רחובות"]->.searchArea;
+(
+    node["leisure"="park"](area.searchArea);
+    way["leisure"="park"](area.searchArea);
+    relation["leisure"="park"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
+```
+
+- [כל הכבישים הממוספרים עם מידע לגבי כמות נתיבים](https://overpass-turbo.eu/s/2bNM)
+```{overpass-api}
+rel(6195356);
+map_to_area;
+way["highway"]["ref"]["lanes"](area);
+out geom meta;
+```
+- [כל הכבישים שהיו שהתווספו לסטטוס בנייה בישראל בין 2020 ל2025](https://overpass-turbo.eu/s/2bNN)
+```{overpass-api}
+[adiff:"2020-01-01T19:20:00Z","2025-01-01T19:20:00Z"];
+relation(6195356);
+map_to_area;
+way["highway"="construction"](area);
+compare(delta:t["highway"]){
+  way._["highway"!~"construction"];
+  out;
+}
+out geom meta;
+```
+## מה בעצם קורה פה?
+- ישות - node, way, relation
+- תכונה - key, value
+בשפת השאילתות אנחנו בוחרים ישויות עם תכונות מסוימות, בתוך אזור מסוים או בקשר רשתי או מרחבי עם ישויות אחרות. 
+החופש שמבנה הנתונים הלא טבלאי מאפשר הוא עצום- היעדר ההיררכיה המובהקת, למעט ברמת סוג הישוות, מאפשר שאילתות מורכבות מאוד שמאגר טבלאי לא היה בהכרח מאפשר.
+
+## חסרונות
+- הנתונים הם מרחביים בעיקרם. ניתן לייצר ישויות של יחסים שאינם בהכרח מרחביים אבל הכל הדש הוא מרחבי. 
+
+## ויקינתונים
+ויקינתונים - מאגר נתונים של ישויות וקשרים בין ישויות.
+מבית ויקיפדיה, פשוט - של נתונים המוזנים על ידי הקהילה ובפורמט נתונים פתוח. 
+לא בהכרח מרחביים, ואפילו רוב הפעמים לא, אבל לעיתים כן. 
+
+## שירות השאילתות של ויקינתונים
+[לינק](https://query.wikidata.org/)
+דוגמאות מספרית הדוגמאות. 
+
+
+## דוגמאות מרחביות
+- [כל הערים הגדולות במדינה מסוימת](https://query.wikidata.org/#%23Largest%20cities%20per%20country%0A%23Largest%20cities%20per%20country%0ASELECT%20DISTINCT%20%3Fcity%20%3FcityLabel%20%3Fpopulation%20%3Fcountry%20%3FcountryLabel%20%3Floc%20WHERE%20%7B%0A%20%20%7B%0A%20%20%20%20SELECT%20%28MAX%28%3Fpopulation_%29%20AS%20%3Fpopulation%29%20%3Fcountry%20WHERE%20%7B%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation_%20.%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP17%20%3Fcountry%20.%0A%20%20%20%20%7D%0A%20%20%20%20GROUP%20BY%20%3Fcountry%0A%20%20%20%20ORDER%20BY%20DESC%28%3Fpopulation%29%0A%20%20%7D%0A%20%20%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%0A%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation%20.%0A%20%20%3Fcity%20wdt%3AP17%20%3Fcountry%20.%0A%20%20%3Fcity%20wdt%3AP625%20%3Floc%20.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22%20.%0A%20%20%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fpopulation%29)    
+
+
+```{spar-ql}
+#Largest cities per country
+SELECT DISTINCT ?city ?cityLabel ?population ?country ?countryLabel ?loc WHERE {
+  {
+    SELECT (MAX(?population_) AS ?population) ?country WHERE {
+      ?city wdt:P31/wdt:P279* wd:Q515 .
+      ?city wdt:P1082 ?population_ .
+      ?city wdt:P17 ?country .
+    }
+    GROUP BY ?country
+    ORDER BY DESC(?population)
+  }
+  ?city wdt:P31/wdt:P279* wd:Q515 .
+  ?city wdt:P1082 ?population .
+  ?city wdt:P17 ?country .
+  ?city wdt:P625 ?loc .
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" .
+  }
+}
+ORDER BY DESC(?population)
+```
+
+
+- [ערכים בויקינתונים הנמצאים עד ק"מ אחד ממשרדי קרן ויקימדיה](https://query.wikidata.org/#%23Items%20geographically%20located%20around%20the%20Wikimedia%20Foundation%20office%2C%20sorted%20by%20distance%0ASELECT%20%3Fplace%20%3Flocation%20%3Fdistance%20%3FplaceLabel%20WHERE%20%7B%0A%20%20%20%20SERVICE%20wikibase%3Aaround%20%7B%0A%20%20%20%20%20%20%3Fplace%20wdt%3AP625%20%3Flocation%20.%0A%20%20%20%20%20%20bd%3AserviceParam%20wikibase%3Acenter%20%22Point%28-122.402251%2037.789246%29%22%5E%5Egeo%3AwktLiteral%20.%0A%20%20%20%20%20%20bd%3AserviceParam%20wikibase%3Aradius%20%221%22%20.%0A%20%20%20%20%20%20bd%3AserviceParam%20wikibase%3Adistance%20%3Fdistance%20.%0A%20%20%20%20%7D%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%7D%20ORDER%20BY%20%3Fdistance%20LIMIT%20100)
+```{spar-ql}
+#Items geographically located around the Wikimedia Foundation office, sorted by distance
+SELECT ?place ?location ?distance ?placeLabel WHERE {
+    SERVICE wikibase:around {
+      ?place wdt:P625 ?location .
+      bd:serviceParam wikibase:center "Point(-122.402251 37.789246)"^^geo:wktLiteral .
+      bd:serviceParam wikibase:radius "1" .
+      bd:serviceParam wikibase:distance ?distance .
+    }
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en". }
+} ORDER BY ?distance LIMIT 100
+```
+
+- [אגן ההיקוות של ההדסון](https://query.wikidata.org/index.html#%23defaultView%3AMap%0ASELECT%20%3Fitem%20%3FitemLabel%20%3Fcoordinates%20%3FappliesPart%0AWHERE%0A%7B%0A%20%20%23%3Fsea%20wdt%3AP361%2a%20wd%3AQ166.%0A%20%20%3Fsea%20wdt%3AP361%2a%20wd%3AQ3140.%0A%20%20%3Fitem%20wdt%3AP403%2a%20%3Fsea.%20%0A%20%20%3Fitem%20p%3AP625%20%3FcoordinateStatement.%0A%20%20%3FcoordinateStatement%20ps%3AP625%20%3Fcoordinates.%20%0A%20%20OPTIONAL%20%7B%20%0A%20%20%20%20%3FcoordinateStatement%20pq%3AP518%20%3FappliesPart.%20%0A%20%20%7D%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22he%2Cen%22.%20%7D%0A%7D%0A)
+```{spar-ql}
+#defaultView:Map
+SELECT ?item ?itemLabel ?coordinates ?appliesPart
+WHERE
+{
+  #?sea wdt:P361* wd:Q166.
+  ?sea wdt:P361* wd:Q3140.
+  ?item wdt:P403* ?sea. 
+  ?item p:P625 ?coordinateStatement.
+  ?coordinateStatement ps:P625 ?coordinates. 
+  OPTIONAL { 
+    ?coordinateStatement pq:P518 ?appliesPart. 
+  }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "he,en". }
+}
+```
+
+
+## חסרונות
+- הנתונים הם בעיקר של נקודות. אין מורכבות גדולה באחסון הנתונים. 
+
+
+## על קצה המזלג - ערבוב בין השניים - qlever
+[לינק](https://qlever.informatik.uni-freiburg.de/demo.html)
+מנוע שאילתות המשלב בין ויקינתונים לopen street map.
+
+
+
+## דוגמא אחת שעובדת
+
+- [גאומטריות של מדינות דוברות ספרדית וכמות האוכלוסיה בהן](https://qlever.cs.uni-freiburg.de/osm-planet/GZhkck)
+
+
+## סיכום
+- שאילתות מרחביות לא טבלאיות הן כלי חזק מאוד.
+- יש להן חסרונות, בעיקר בהקשר של מורכבות הנתונים.
+- יש להן יתרונות גדולים, בעיקר בהקשר של חופש השאילתות והיכולת לשלב בין סוגי נתונים שונים.
+- השימוש בהן מעצב מחדש את החשיבה שלנו על נתונים ומרחב, וכמות השאלות שניתן לשאול בקלות. 
+- ניהול מסד נתונים תפעולי שלם בצורה מקוננת - האתגר הבא. 
+
+## תודה רבה!

@@ -1,0 +1,9 @@
+html[lang="he"], body[lang="he"] {
+  direction: rtl;
+  unicode-bidi: embed;
+  text-align: right;
+}
+pre, code {
+    direction: ltr;
+    text-align: left;
+}
