@@ -72,23 +72,32 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="למה-אנחנו-רגילים" class="level2">
 <h2 class="anchored" data-anchor-id="למה-אנחנו-רגילים">למה אנחנו רגילים?</h2>
-<p>שאילתות מרחביות טבלאיות. לדוגמא - עם qgis. לדוגמא - עם sql מרחבי.</p>
+<p>שאילתות מרחביות טבלאיות. לדוגמא - עם qgis. <video src="movie1.mp4" class="img-fluid" controls=""><a href="movie1.mp4">Video</a></video></p>
+<p>לדוגמא - עם sql מרחבי. <img src="pict1.png" class="img-fluid"></p>
 </section>
 <section id="מה-המגבלות" class="level2">
 <h2 class="anchored" data-anchor-id="מה-המגבלות">מה המגבלות?</h2>
-<p>הכל מסודר בטבלאות. הוספת רשומה, עמודה, ישות או קשר בין טבלאות - מורכב - מהקל אל הכבד.</p>
+<p>הכל מסודר בטבלאות.</p>
+<p>הוספת רשומה, עמודה, ישות או קשר בין טבלאות - מורכב - מהקל אל הכבד.</p>
 </section>
 <section id="מבנה-רשתי" class="level2">
 <h2 class="anchored" data-anchor-id="מבנה-רשתי">מבנה רשתי</h2>
-<p>רשתות - מבנה נתונים לא טבלאי. מאפשרות מחשבה שונה על המרחב, מה שמתואר בו ואיך דברים מתוארים בו.</p>
+<p>רשתות - מבנה נתונים לא טבלאי.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Example_of_simple_undirected_graph_3.svg" class="img-fluid figure-img"></p>
+<figcaption>By Michel Bakni - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=151762031</figcaption>
+</figure>
+</div>
+<p>מאפשרות מחשבה שונה על המרחב, מה שמתואר בו ואיך דברים מתוארים בו.</p>
 </section>
-<section id="דוגמאות-בשטח" class="level2">
-<h2 class="anchored" data-anchor-id="דוגמאות-בשטח">דוגמאות בשטח</h2>
-<p>ויקינתונים - ישויות וקשרים בין ישויות.</p>
+<section id="דוגמאות-של-מסד-נתונים-עם-מבנה-רשתי-לא-מרחבי" class="level2">
+<h2 class="anchored" data-anchor-id="דוגמאות-של-מסד-נתונים-עם-מבנה-רשתי-לא-מרחבי">דוגמאות של מסד נתונים עם מבנה רשתי לא מרחבי</h2>
+<p><a href="https://www.wikidata.org/">ויקינתונים</a> - ישויות וקשרים בין ישויות.</p>
 </section>
-<section id="דוגמאות-גאוגרפיות" class="level2">
-<h2 class="anchored" data-anchor-id="דוגמאות-גאוגרפיות">דוגמאות גאוגרפיות</h2>
-<p>open street map - ישויות וקשרים בין ישויות. אין שכבות.</p>
+<section id="דוגמאות-מרחביות" class="level2">
+<h2 class="anchored" data-anchor-id="דוגמאות-מרחביות">דוגמאות מרחביות</h2>
+<p><a href="https://www.openstreetmap.org/">open street map</a> - ישויות וקשרים בין ישויות. אין שכבות.</p>
 </section>
 <section id="איך-שואלים-שאלות" class="level2">
 <h2 class="anchored" data-anchor-id="איך-שואלים-שאלות">איך שואלים שאלות?</h2>
@@ -158,8 +167,8 @@ out geom meta;</code></pre>
 <h2 class="anchored" data-anchor-id="שירות-השאילתות-של-ויקינתונים">שירות השאילתות של ויקינתונים</h2>
 <p><a href="https://query.wikidata.org/">לינק</a> דוגמאות מספרית הדוגמאות.</p>
 </section>
-<section id="דוגמאות-מרחביות" class="level2">
-<h2 class="anchored" data-anchor-id="דוגמאות-מרחביות">דוגמאות מרחביות</h2>
+<section id="דוגמאות-מרחביות-1" class="level2">
+<h2 class="anchored" data-anchor-id="דוגמאות-מרחביות-1">דוגמאות מרחביות</h2>
 <ul>
 <li><a href="https://query.wikidata.org/#%23Largest%20cities%20per%20country%0A%23Largest%20cities%20per%20country%0ASELECT%20DISTINCT%20%3Fcity%20%3FcityLabel%20%3Fpopulation%20%3Fcountry%20%3FcountryLabel%20%3Floc%20WHERE%20%7B%0A%20%20%7B%0A%20%20%20%20SELECT%20%28MAX%28%3Fpopulation_%29%20AS%20%3Fpopulation%29%20%3Fcountry%20WHERE%20%7B%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation_%20.%0A%20%20%20%20%20%20%3Fcity%20wdt%3AP17%20%3Fcountry%20.%0A%20%20%20%20%7D%0A%20%20%20%20GROUP%20BY%20%3Fcountry%0A%20%20%20%20ORDER%20BY%20DESC%28%3Fpopulation%29%0A%20%20%7D%0A%20%20%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%0A%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation%20.%0A%20%20%3Fcity%20wdt%3AP17%20%3Fcountry%20.%0A%20%20%3Fcity%20wdt%3AP625%20%3Floc%20.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22%20.%0A%20%20%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fpopulation%29">כל הערים הגדולות במדינה מסוימת</a></li>
 </ul>
